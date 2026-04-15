@@ -101,4 +101,14 @@ FROM Customers;
 SELECT CustomerID, Email, TRIM(Email) AS TrimmedEmail
 FROM Customers;
 
--- 14. 
+-- 14. Calculate the running total for amount of each order.
+SELECT OrderID, OrderDate, TotalAmount,
+       SUM(TotalAmount) OVER (ORDER BY OrderDate) AS RunningTotal
+FROM Orders;
+
+-- 15. Rank based on total amount using rank() function.
+SELECT OrderID, TotalAmount,
+       RANK() OVER (ORDER BY TotalAmount DESC) AS AmountRank
+FROM Orders;
+
+
