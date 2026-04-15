@@ -85,4 +85,8 @@ FROM Orders;
 SELECT OrderID, OrderDate, DATE_FORMAT(OrderDate, '%d-%b-%Y') AS FormattedOrderDate
 FROM Orders;
 
--- 10. Calculate the total sales for each customer.
+-- 10. Concatenate first name and last name of customers to full name.]
+SELECT CustomerID, CONCAT(FirstName, ' ', LastName) AS FullName
+FROM Customers;
+
+
