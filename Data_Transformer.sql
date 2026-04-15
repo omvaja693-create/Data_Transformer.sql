@@ -73,4 +73,8 @@ SELECT FirstName, LastName
 FROM Employees
 WHERE Salary > (SELECT AVG(Salary) FROM Employees);
 
+-- 7. Extract the year and month from order date
+SELECT OrderID, OrderDate, YEAR(OrderDate) AS OrderYear, MONTH(OrderDate) AS OrderMonth
+FROM Orders;    
+
 
