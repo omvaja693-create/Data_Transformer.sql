@@ -81,4 +81,8 @@ FROM Orders;
 SELECT OrderID, OrderDate, DATEDIFF(CURRENT_DATE, OrderDate) AS DaysSinceOrder
 FROM Orders;
 
--- 9. 
+-- 9. Formate order date to more readable format (DD-MMM-YYYY).
+SELECT OrderID, OrderDate, DATE_FORMAT(OrderDate, '%d-%b-%Y') AS FormattedOrderDate
+FROM Orders;
+
+-- 10. Calculate the total sales for each customer.
