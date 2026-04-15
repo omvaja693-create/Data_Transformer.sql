@@ -1,3 +1,4 @@
+# table creation and data insertion for Customers, Orders, and Employees
 CREATE TABLE Customers (
     CustomerID INT PRIMARY KEY,
     FirstName VARCHAR(50),
@@ -34,4 +35,12 @@ CREATE TABLE Employees (
 INSERT INTO Employees VALUES
 (1, 'Mark', 'Johnson', 'Sales', '2020-01-15', 50000.00),
 (2, 'Susan', 'Lee', 'HR', '2021-03-20', 55000.00);
+
+
+# Operations to transform data for analysis:
+
+1. Retrive all customers and order details where orders exists.
+SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
+FROM Customers c
+INNER JOIN Orders o ON c.CustomerID = o.CustomerID;
 
