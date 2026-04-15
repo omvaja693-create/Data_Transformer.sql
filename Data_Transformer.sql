@@ -101,4 +101,4 @@ FROM Customers;
 SELECT CustomerID, Email, TRIM(Email) AS TrimmedEmail
 FROM Customers;
 
-
+-- 14. 
