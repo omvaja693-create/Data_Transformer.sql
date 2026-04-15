@@ -49,7 +49,12 @@ SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
 FROM Customers c 
 LEFT JOIN Orders o ON c.CustomerID = o.CustomerID;
 
--- 3. Retrieve all employees and their department details.
-SELECT e.FirstName, e.LastName, e.Department, e.Salary
-FROM Employees e;
+-- 3. Retrieve all orders and there corresponding customers (if any).
+SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
+FROM Orders o
+LEFT JOIN Customers c ON o.CustomerID = c.CustomerID;
 
+-- 4. Retrieve all Customers and orders regardless of matching.
+SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
+FROM Customers c
+FULL OUTER JOIN Orders o ON c.CustomerID = o.CustomerID;
