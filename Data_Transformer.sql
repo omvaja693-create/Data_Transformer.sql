@@ -68,4 +68,9 @@ WHERE CustomerID IN (
     WHERE TotalAmount > (SELECT AVG(TotalAmount) FROM Orders)
 );
 
+-- 6. Subquery to find employees who have a salary greater than the average salary 
+SELECT FirstName, LastName
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+
 
