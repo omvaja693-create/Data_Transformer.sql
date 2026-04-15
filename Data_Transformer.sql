@@ -77,4 +77,8 @@ WHERE Salary > (SELECT AVG(Salary) FROM Employees);
 SELECT OrderID, OrderDate, YEAR(OrderDate) AS OrderYear, MONTH(OrderDate) AS OrderMonth
 FROM Orders;    
 
+-- 8. Calculate the difference in days between two dates (order date and current date).
+SELECT OrderID, OrderDate, DATEDIFF(CURRENT_DATE, OrderDate) AS DaysSinceOrder
+FROM Orders;
 
+-- 9. 
