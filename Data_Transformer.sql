@@ -1,4 +1,4 @@
-# table creation and data insertion for Customers, Orders, and Employees
+-- table creation and data insertion for Customers, Orders, and Employees
 CREATE TABLE Customers (
     CustomerID INT PRIMARY KEY,
     FirstName VARCHAR(50),
@@ -37,10 +37,19 @@ INSERT INTO Employees VALUES
 (2, 'Susan', 'Lee', 'HR', '2021-03-20', 55000.00);
 
 
-# Operations to transform data for analysis:
+-- Operations to transform data for analysis:
 
-1. Retrive all customers and order details where orders exists.
+-- 1. Retrive all customers and order details where orders exists.
 SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
 FROM Customers c
 INNER JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+-- 2. Retrive all customers and their currosponding orders (if any).
+SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
+FROM Customers c 
+LEFT JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+-- 3. Retrieve all employees and their department details.
+SELECT e.FirstName, e.LastName, e.Department, e.Salary
+FROM Employees e;
 
