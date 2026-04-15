@@ -93,4 +93,12 @@ FROM Customers;
 SELECT CustomerID, FirstName, REPLACE(FirstName, 'John', 'Jonathan') AS UpdatedFirstName
 FROM Customers; 
 
+-- 12. Convert FirstName to uppercase and LastName to lowercase.
+SELECT CustomerID, UPPER(FirstName) AS UpperFirstName, LOWER(LastName) AS LowerLastName
+FROM Customers;
+
+-- 13. Trim Extra spaces from Email field.
+SELECT CustomerID, Email, TRIM(Email) AS TrimmedEmail
+FROM Customers;
+
 
