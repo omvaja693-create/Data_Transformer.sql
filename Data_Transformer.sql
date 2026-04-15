@@ -111,4 +111,21 @@ SELECT OrderID, TotalAmount,
        RANK() OVER (ORDER BY TotalAmount DESC) AS AmountRank
 FROM Orders;
 
+16. Assign a discount based on total amount in orders (e.g >1000:10%off,>500:5% off)
+select OrderID, TotalAmount,
+       CASE 
+           WHEN TotalAmount > 1000 THEN '10% off'
+           WHEN TotalAmount > 500 THEN '5% off'
+           ELSE 'No discount'
+       END AS Discount
+FROM Orders;
+
+17. categorize employees based on salary high, medium, low. 
+SELECT EmployeeID, Salary,
+       CASE 
+           WHEN Salary > 60000 THEN 'High'
+           WHEN Salary > 40000 THEN 'Medium'
+           ELSE 'Low'
+       END AS SalaryCategory
+FROM Employees;
 
