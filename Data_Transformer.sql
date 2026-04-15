@@ -89,4 +89,8 @@ FROM Orders;
 SELECT CustomerID, CONCAT(FirstName, ' ', LastName) AS FullName
 FROM Customers;
 
+-- 11. Replace part of a string (e.g., replace 'John' with 'Jonathan').
+SELECT CustomerID, FirstName, REPLACE(FirstName, 'John', 'Jonathan') AS UpdatedFirstName
+FROM Customers; 
+
 
