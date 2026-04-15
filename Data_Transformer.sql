@@ -58,3 +58,14 @@ LEFT JOIN Customers c ON o.CustomerID = c.CustomerID;
 SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
 FROM Customers c
 FULL OUTER JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+-- 5 Subquery to find customers who have made orders greater average  amount.
+SELECT FirstName, LastName
+FROM Customers
+WHERE CustomerID IN (
+    SELECT CustomerID
+    FROM Orders
+    WHERE TotalAmount > (SELECT AVG(TotalAmount) FROM Orders)
+);
+
+
