@@ -1,3 +1,5 @@
+create database DataTransformer;
+use DataTransformer;
 -- table creation and data insertion for Customers, Orders, and Employees
 CREATE TABLE Customers (
     CustomerID INT PRIMARY KEY AUTO_INCREMENT,
@@ -78,11 +80,6 @@ SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
 FROM Orders o
 LEFT JOIN Customers c ON o.CustomerID = c.CustomerID;
 
--- 4. Retrieve all Customers and orders regardless of matching.
-SELECT c.FirstName, c.LastName, o.OrderID, o.OrderDate, o.TotalAmount
-FROM Customers c
-FULL OUTER JOIN Orders o ON c.CustomerID = o.CustomerID;
-
 -- 5 Subquery to find customers who have made orders greater average  amount.
 SELECT FirstName, LastName
 FROM Customers
@@ -109,7 +106,7 @@ FROM Orders;
 SELECT OrderID, OrderDate, DATE_FORMAT(OrderDate, '%d-%b-%Y') AS FormattedOrderDate
 FROM Orders;
 
--- 10. Concatenate first name and last name of customers to full name.]
+-- 10. Concatenate first name and last name of customers to full name.
 SELECT CustomerID, CONCAT(FirstName, ' ', LastName) AS FullName
 FROM Customers;
 
@@ -135,7 +132,6 @@ SELECT OrderID, TotalAmount,
        RANK() OVER (ORDER BY TotalAmount DESC) AS AmountRank
 FROM Orders;
 
-16. Assign a discount based on total amount in orders (e.g >1000:10%off,>500:5% off)
 select OrderID, TotalAmount,
        CASE 
            WHEN TotalAmount > 1000 THEN '10% off'
@@ -144,7 +140,6 @@ select OrderID, TotalAmount,
        END AS Discount
 FROM Orders;
 
-17. categorize employees based on salary high, medium, low. 
 SELECT EmployeeID, Salary,
        CASE 
            WHEN Salary > 60000 THEN 'High'
