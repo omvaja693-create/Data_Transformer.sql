@@ -129,3 +129,4 @@ SELECT EmployeeID, Salary,
        END AS SalaryCategory
 FROM Employees;
 
+--- End of Data Transformation SQL queries
